@@ -11,6 +11,7 @@
         vm.projectForm = null;
         vm.navRightTitle = "Add User";
         vm.valid = true;
+        vm.project ="Project";
 
         // set style class for sideNav width
         vm.navSize = 'width-400';
