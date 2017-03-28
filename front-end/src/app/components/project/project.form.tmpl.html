@@ -1,0 +1,18 @@
+<form name="vm.projectForm" ng-submit="vm.projectForm.$valid" novalidate>
+
+    <md-input-container class="md-block">
+        <label>Username</label>
+        <input required  name="username" ng-model="vm.user.username">
+        <div ng-messages="vm.projectForm.username.$error">
+            <div ng-message="required" >This is required.</div>
+        </div>
+
+    </md-input-container>
+
+
+    <section layout="row" layout-sm="column" layout-align="end center" layout-wrap>
+        <md-button class="md-raised" type="submit">Save</md-button>
+        <md-button class="md-warn md-raised md-hue-2" ng-click="vm.resetForm(vm.projectForm)">Clear</md-button>
+    </section>
+
+</form>
