@@ -1,0 +1,34 @@
+<div layout="column" layout-fill flex>
+
+    <!--Top bar-->
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <div class="full-width" ui-view="top"></div>
+        </div>
+    </md-toolbar>
+
+    <!--Side right Nav-->
+    <md-sidenav class="md-sidenav-right md-whiteframe-z2 {{vm.navSize}}" md-component-id="right">
+        <md-toolbar layout-padding>
+            <h2 class="md-toolbar-tool mtb-0">{{vm.navRightTitle}}</h2>
+        </md-toolbar>
+        <md-content layout-padding>
+            <div ui-view="right"></div>
+        </md-content>
+    </md-sidenav>
+
+    <!--Main Container-->
+    <section layout="row" flex>
+        <!--Side left Nav-->
+        <md-sidenav md-is-locked-open="true" class="md-sidenav-left md-whiteframe-z2 width-280" md-component-id="left">
+            <div ui-view="left"></div>
+        </md-sidenav>
+
+        <md-content flex layout-padding>
+            <div ui-view="main"></div>
+        </md-content>
+
+    </section>
+
+
+</div>

@@ -1,0 +1,49 @@
+<form name="vm.userForm" ng-submit="vm.userForm.$valid && vm.addUser(vm.user)" novalidate>
+
+    <md-input-container class="md-block">
+        <label>Username</label>
+        <input required  name="username" ng-model="vm.user.username">
+        <div ng-messages="vm.userForm.username.$error">
+            <div ng-message="required" >This is required.</div>
+        </div>
+
+    </md-input-container>
+
+
+    <md-input-container class="md-block">
+        <label>Email</label>
+        <input required type="email" name="email" ng-model="vm.user.email"
+               minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/"/>
+
+        <div ng-messages="vm.userForm.email.$error" role="alert">
+            <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+                Your email must be between 10 and 100 characters long and look like an e-mail address.
+            </div>
+            <div class="md-input-message-animation" ng-show="vm.isEquals" >
+                Already exist
+            </div>
+        </div>
+    </md-input-container>
+
+    <md-input-container class="md-block">
+        <label>Password</label>
+        <input type="password" name="password" ng-model="vm.user.password">
+        <div ng-messages="vm.userForm.password.$error">
+            <div ng-message="required">This is required.</div>
+        </div>
+    </md-input-container>
+
+    <md-input-container class="md-block">
+        <label>Confirm Password</label>
+        <input type="password" name="conf_password" ng-model="vm.user.conf_password">
+        <div ng-messages="vm.userForm.conf_password.$error">
+            <div ng-message="vm.user.conf_password"> This is required.</div>
+        </div>
+    </md-input-container>
+
+    <section layout="row" layout-sm="column" layout-align="end center" layout-wrap>
+        <md-button class="md-raised" type="submit">Save</md-button>
+        <md-button class="md-warn md-raised md-hue-2" ng-click="vm.resetForm(vm.userForm)">Clear</md-button>
+    </section>
+
+</form>
